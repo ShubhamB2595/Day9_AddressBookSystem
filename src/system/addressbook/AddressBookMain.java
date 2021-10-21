@@ -10,6 +10,7 @@ public class AddressBookMain {
 	private final static int ADD_CONTACT = 1;
 	private final static int VIEW_CONTACT = 2;
 	private final static int EDIT_CONTACT = 3;
+	private final static int DELETE_CONTACT = 4;
 
 	@SuppressWarnings("resource") // for input
 	public static void main(String[] args) {
@@ -36,6 +37,10 @@ public class AddressBookMain {
 				contact.editContact();
 				break;
 			
+			case DELETE_CONTACT:
+				contact.deleteContact();
+				break;
+				
 			default:
 				System.out.println(option + "Not found, Enter Correct option");
 			
