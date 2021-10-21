@@ -19,31 +19,31 @@ public class AddressBookMain {
 		
 		AddressBook contact = new AddressBook();
 
-		for(int i = 0; i<10; i++) {
+		while(true) {
 			System.out.println("Enter option:\n 1 To add new contact \n 2 To view contact \n 3 To edit contact");
 			Scanner input = new Scanner(System.in);
 			int option = input.nextInt();
 		
 			switch(option) {
-			case ADD_CONTACT:
-				contact.addContact();
-				break;
+				case ADD_CONTACT:
+					contact.addContact();
+					break;
 			
-			case VIEW_CONTACT:
-				contact.readContact();
-				break;
+				case VIEW_CONTACT:
+					contact.readContact();
+					break;
 			
-			case EDIT_CONTACT:
-				contact.editContact();
-				break;
+				case EDIT_CONTACT:
+					contact.editContact();
+					break;
 			
-			case DELETE_CONTACT:
-				contact.deleteContact();
-				break;
+				case DELETE_CONTACT:
+					contact.deleteContact();
+					break;
 				
-			default:
-				System.out.println(option + "Not found, Enter Correct option");
-			
+				default:
+					System.out.println(option + "Not found, Enter Correct option");
+					System.exit(0);
 			}//switch statement
 		
 		}
