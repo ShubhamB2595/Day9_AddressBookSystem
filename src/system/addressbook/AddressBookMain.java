@@ -8,7 +8,8 @@ public class AddressBookMain {
 	
 	//Constants
 	private final static int ADD_CONTACT = 1;
-
+	private final static int VIEW_CONTACT = 2;
+	private final static int EDIT_CONTACT = 3;
 
 	@SuppressWarnings("resource") // for input
 	public static void main(String[] args) {
@@ -17,21 +18,30 @@ public class AddressBookMain {
 		
 		AddressBook contact = new AddressBook();
 
-		System.out.println("Enter 1 to add new contact");
-		Scanner input = new Scanner(System.in);
-		int option = input.nextInt();
+		for(int i = 0; i<10; i++) {
+			System.out.println("Enter option:\n 1 To add new contact \n 2 To view contact \n 3 To edit contact");
+			Scanner input = new Scanner(System.in);
+			int option = input.nextInt();
 		
-		switch(option) {
-		case ADD_CONTACT:
-			contact.addContact();
-			break;
-		
-		default:
-			System.out.println(option + "Not found, Enter Correct option");
+			switch(option) {
+			case ADD_CONTACT:
+				contact.addContact();
+				break;
 			
-		}//switch statement
+			case VIEW_CONTACT:
+				contact.readContact();
+				break;
+			
+			case EDIT_CONTACT:
+				contact.editContact();
+				break;
+			
+			default:
+				System.out.println(option + "Not found, Enter Correct option");
+			
+			}//switch statement
 		
-		contact.readContact("RAVI");
+		}
 		
 	}
 

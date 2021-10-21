@@ -4,11 +4,13 @@ package system.addressbook;
  */
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AddressBook {
 	
 	ArrayList<ContactPerson> contacts;
-	
+	Scanner input = new Scanner(System.in);
+	String name;
 	//Constructor
 	public AddressBook() {
 		contacts = new ArrayList<ContactPerson>();
@@ -20,17 +22,32 @@ public class AddressBook {
 		contacts.add(newcontact);
 	}
 	
-	void readContact(String name) {
+	void readContact() {
 		
+		System.out.println("Enter Name to serach in Address Book");
+		name = input.nextLine();
 		for(int i = 0; i < contacts.size(); i++) {
 			ContactPerson read = (ContactPerson)contacts.get(i);
-			if(name.equals(read.firstName)) {
+			if(name.equalsIgnoreCase(read.firstName)) {
 				read.readContact();
 			}//if statement
-			else {
-				System.out.println("Contact '" + name + "' not available in Address Book");
-			}// else
+
 		}//for
+	}
+	
+	void editContact() {
+		
+		System.out.println("Enter Name to edit in Address Book");
+		name = input.nextLine();
+		for(int i = 0; i < contacts.size(); i++) {
+			ContactPerson read = (ContactPerson)contacts.get(i);
+			if(name.equalsIgnoreCase(read.firstName)) {
+				System.out.println("Enter new Name for '" + name + "' :");
+				read.setFirstName(name);
+			}//if statement
+
+		}
+		
 	}
 
 
